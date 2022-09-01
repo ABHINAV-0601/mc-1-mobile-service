@@ -15,7 +15,6 @@ public class MobileStoreTest {
      MobileStore mobileStore;
 
 
-
     @Test
     public void givenInputSamsumgShouldReturnAllSamsungMobile()
     {
