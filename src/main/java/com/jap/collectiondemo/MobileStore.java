@@ -29,19 +29,19 @@ public class MobileStore {
     public List<Mobile> readMobileData(String fileName)
     {
         int countLines = 0;
-        Mobile[] mobiles = null;
+        //Mobile[] mobiles = null;
         try{
-            FileReader fileReader = new FileReader(fileName);
+            /*FileReader fileReader = new FileReader(fileName);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line = bufferedReader.readLine();
             while((line = bufferedReader.readLine()) != null){
                 countLines++;
-            }
-            mobiles = new Mobile[countLines];
-            fileReader = new FileReader(fileName);
-            bufferedReader = new BufferedReader(fileReader);
-            line = bufferedReader.readLine();
-            int index = 0;
+            }*/
+            //mobiles = new Mobile[countLines];
+            FileReader fileReader = new FileReader(fileName);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line = bufferedReader.readLine();
+           // int index = 0;
             while ((line = bufferedReader.readLine()) != null){
                 String[] values = line.split(splitBy);
                 String brandName = values[0];
@@ -52,13 +52,14 @@ public class MobileStore {
                 String storageSpace = values[5];
                 int cameraPixels = Integer.parseInt(values[6]);
 
-                mobiles[index] = new Mobile(brandName,modelName,cost,screenSize,batteryLife,storageSpace,cameraPixels);
-                index++;
+                //mobiles[index] = new Mobile(brandName,modelName,cost,screenSize,batteryLife,storageSpace,cameraPixels);
+                allMobiles.add(new Mobile(brandName,modelName,cost,screenSize,batteryLife,storageSpace,cameraPixels));
+                //index++;
             }
-            for (int i = 0; i < mobiles.length; i++) {
+            /*for (int i = 0; i < mobiles.length; i++) {
                 allMobiles.add(mobiles[i]);
 
-            }
+            }*/
         }catch (FileNotFoundException e){
             e.printStackTrace();
         }catch (IOException e){
